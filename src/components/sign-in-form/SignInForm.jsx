@@ -1,16 +1,16 @@
-import { useState } from "react";
-import FormInput from "../form-input/FormInput";
-import "./SingInForm.scss";
-import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
-import { useDispatch } from "react-redux";
+import { useState } from 'react';
+import FormInput from '../form-input/FormInput';
+import './SingInForm.scss';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
+import { useDispatch } from 'react-redux';
 import {
   emailSignInStart,
   googleSignInStart,
-} from "../../store/user/user.action";
+} from '../../store/user/user.action';
 
 const defaultFormFields = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const SignInForm = () => {
@@ -34,11 +34,11 @@ const SignInForm = () => {
       resetFormFields();
     } catch (e) {
       switch (e.code) {
-        case "auth/wrong-password":
-          alert("incorrect password for email");
+        case 'auth/wrong-password':
+          alert('incorrect password for email');
           break;
-        case "auth/user-not-found":
-          alert("no user associated with this email");
+        case 'auth/user-not-found':
+          alert('no user associated with this email');
           break;
         default:
           console.log(e);
@@ -80,9 +80,7 @@ const SignInForm = () => {
         />
 
         <div className="buttons-container">
-          <Button type="submit" type="Submit">
-            Sign In
-          </Button>
+          <Button type="submit">Sign In</Button>
           <Button
             buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"

@@ -1,12 +1,12 @@
-import Home from "./routes/home/Home";
-import { Route, Routes } from "react-router-dom";
-import Navigation from "./routes/navigation/Navigation";
-import Authentication from "./routes/sing-in/Authentication";
-import Shop from "./routes/shop/Shop";
-import Checkout from "./routes/checkout/Checkout";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { checkUserSession } from "./store/user/user.action";
+import Home from './routes/home/Home';
+import { Route, Routes } from 'react-router-dom';
+import Navigation from './routes/navigation/Navigation';
+import Authentication from './routes/sing-in/Authentication';
+import Shop from './routes/shop/Shop';
+import Checkout from './routes/checkout/Checkout';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { checkUserSession } from './store/user/user.action';
 
 // App nested in <BrowserRouter> component
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>
