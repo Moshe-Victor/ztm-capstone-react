@@ -12,24 +12,24 @@ export const BUTTON_TYPE_CLASSES = {
 };
 
 const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
-  ({
-    [BUTTON_TYPE_CLASSES.base]: BaseButton,
-    [BUTTON_TYPE_CLASSES.google]: GoogleSignInButton,
-    [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
-  })[buttonType];
+    ({
+      [BUTTON_TYPE_CLASSES.base]: BaseButton,
+      [BUTTON_TYPE_CLASSES.google]: GoogleSignInButton,
+      [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
+    })[buttonType];
 
 const Button = ({
-  children,
-  buttonType,
-  isLoading = false,
-  isProcessingComplete,
-  ...otherProps
-}) => {
+                  children,
+                  buttonType,
+                  isLoading = false,
+                  isProcessingComplete,
+                  ...otherProps
+                }) => {
   const CustomButton = getButton(buttonType);
   return (
-    <CustomButton disabled={isLoading || isProcessingComplete} {...otherProps}>
-      {isLoading ? <LoadingSpinner /> : children}
-    </CustomButton>
+      <CustomButton disabled={isLoading || isProcessingComplete} {...otherProps}>
+        {isLoading ? <LoadingSpinner /> : children}
+      </CustomButton>
   );
 };
 
