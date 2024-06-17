@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import FormInput from '../form-input/FormInput';
 import './SingInForm.scss';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
@@ -32,18 +32,8 @@ const SignInForm = () => {
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
-    } catch (e) {
-      switch (e.code) {
-        case 'auth/wrong-password':
-          alert('incorrect password for email');
-          break;
-        case 'auth/user-not-found':
-          alert('no user associated with this email');
-          break;
-        default:
-          console.log(e);
-          break;
-      }
+    } catch (error) {
+      console.log('user sign in failed', error);
     }
   };
 
